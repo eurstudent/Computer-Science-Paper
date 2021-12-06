@@ -7,11 +7,10 @@ Files in Repository:
    - Main_Simmilarity.py       -> Script for optimizing Threshold/Epsilon fo Jaccard/Clustering
    - Read_Json.py              -> Script for reading JSON file with results and finding optimized hyper-parameters
 
-### Main_Clean.py ###
+# Main_Clean.py
 ----------------------------------------------------------------------------------------------------------------------------------------
 
-# Hyper Parameters
-# ModelWord hyperParameters
+### Hyper Parameters ###
 minWordLength {
   Defines the length a model word needs to be
   }
