@@ -63,6 +63,9 @@ Additional Clarification:\
 Data is Properly cleaned and columns are automatically added together using FuzzyWuzzy Wratio. This is done for all columns with a high threshold and for the brand Column with a slightly lower threshold because I wanted to find all brands in the Featuremap so they could be added to the title Column.\
 
 #CandidatePair Cleaning
-The candiate pair list that is the result of LSH is filtered befor clustering/similarity filtering. This is done because it contains duplicates. In addition to duplicate filtering it is also checked that the candidates are from different shops (assumption: The shop does not sell the same product twice. is allowed to make but not true) and that the candidate pairs have the same brand if brand is clarrified.
+The candiate pair list that is the result of LSH is filtered befor clustering/similarity filtering. This is done because it contains duplicates. In addition to duplicate filtering it is also checked that the candidates are from different shops (assumption: The shop does not sell the same product twice. is allowed to make but not true) and that the candidate pairs have the same brand only remove candidate pair if both brands are present and different.
 
-
+### Aditional implementations ###
+   - Two hash Functions: One hash function which creates smaller numbers but uses the proposed hash function which implements the modulus of a prime number. The other hash function creates large numbers which are produces to reduce the amount of hash collisions. They often differ in performance for different Hyperparameters. Trying them both for the best result is why they are both added.
+   - Two Types of LSH: fast LSH is quick but does not as a good job as the hardcoded LSH. I used the fast LSH to quickly run my program and see the effect of my implementations.
+   - Simmilarity: Two types of simmilarity filtering. One is simple and based on the jaccard simmilarity score and an applied threshold. The other is based on hierachial clustering. The reason why i have added them both is because it took me a while to get the hierachial clustering working.
