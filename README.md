@@ -62,6 +62,34 @@ Additional Clarification:\
 #Data Cleaning
 Data is Properly cleaned and columns are automatically added together using FuzzyWuzzy Wratio. This is done for all columns with a high threshold and for the brand Column with a slightly lower threshold because I wanted to find all brands in the Featuremap so they could be added to the title Column.\
 
+The unit replacements are shown below and in the code the XXX is replaced and used to concatenate the unit to the correct number
+replaceDict = {
+    'inches' : 'XXXINCH',
+    '-inch'  : 'XXXINCH',
+    'inch'   : 'XXXINCH',
+    '"'      : 'XXXINCH',
+    'hertz'  : 'XXXHERTZ',
+    '-hz'    : 'XXXHERTZ',
+    'hz'     : 'XXXHERTZ',
+    'lbs'    : 'XXXPOUNDS',
+    'lb'     : 'XXXPOUNDS',
+    'pounds' : 'XXXPOUNDS',
+    'mm'     : 'XXXMM',
+    'cd/m2'  : 'XXXNIT',
+    'cd/mâ2' : 'XXXNIT',
+    'cd/mâ²' : 'XXXNIT',
+    'nit'    : 'XXXNIT',
+    'watt'      : 'w',
+    '(\s[^\w])': ' ',            # Remove special charecters befor string 
+    '([^\w\s]|_)+(?=\s|$)': ' ', # Remove special charecters after string
+    'nan'    : ' ',
+    'measured diagonally'   :  'XXXDIAG',
+    'measureed diagonal'   :  'XXXDIAG',
+    'diagonal'   :  'XXXDIAG',
+    'diag'   :  'XXXDIAG',
+    'class'  :   ''
+}
+
 #CandidatePair Cleaning
 The candiate pair list that is the result of LSH is filtered befor clustering/similarity filtering. This is done because it contains duplicates. In addition to duplicate filtering it is also checked that the candidates are from different shops (assumption: The shop does not sell the same product twice. is allowed to make but not true) and that the candidate pairs have the same brand only remove candidate pair if both brands are present and different.
 
