@@ -56,4 +56,4 @@ epsilon   {
   }
   
 # Script
-In script Multiple Comments are added to 
+In script clarification is found at the beginning of each part. 
