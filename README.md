@@ -4,7 +4,7 @@ Detecting Duplicate TV's Using Minhash and LSH
 Files in Repository:
    - Main_Clean.py             -> Main Script with full implementation
    - Main_LSH_GRIDSEARCH.py    -> Script for optimizing Parameters Until LSH
-   - Main_Simmilarity.py       -> Script for optimizing Threshold/Epsilon fo Jaccard/Clustering
+   - Main_SIM_GriDSEARCH.py       -> Script for optimizing Threshold/Epsilon fo Jaccard/Clustering
    - Read_Json.py              -> Script for reading JSON file with results and finding optimized hyper-parameters
 
 # Main_Clean.py
@@ -42,8 +42,8 @@ repetitions    {\
 fastLSH   {\
   Fast LSH is a different Locallity sensitive Algorithm which is less accurate but is very fast. -> used for quick comparing new implementations\
   }\
-candidatePairsByModelID {\
-  Boolean: If True algorithm will try to find modelID's in title and/or Featuremap. After LSH products will be checked if two times the same modelID is found. To keep this        method robust and scalable. The candidate pair must still go through Similarity clustering\
+Important Words {\
+  Boolean: If True algorithm Will add prior beliefs to the model words which will be given a weight in the algorithm.
   }\
 threshold  {\
   Jaccard Similarity threshold. Determines the amount of Candidate pairs that is said to be a true pair.\
